@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=, initial-scale=1.0">
     <a href="index.html" class="home-btn">Home</a>
-    <title>Assassin's Creed Odyssey</title>
+    <title>Document</title>
 </head>
-<body class="odyssey">
+<body class="syndicate">
     <div class="container">
 
     <h1 class="title">Assassin's Creed Odyssey</h1>
@@ -21,12 +23,14 @@
 </div>
 
 <br>
+
 <iframe 
- width="1200" 
- height="600" 
- src="https://www.youtube.com/embed/6F8L3d_OIE0?si=9fvSg2_pyGJR5E8j"
- frameborder="0" 
- allowfullscreen></iframe>
+  width="1200" 
+  height="600" 
+  src="https://www.youtube.com/embed/mr2T-WheM4M?si=38zjU4Fh9PPS0MvD" 
+  frameborder="0" 
+  allowfullscreen>
+</iframe>
 
 <!-- MODAL -->
 <div class="overlay" id="overlay">
@@ -42,10 +46,9 @@ const modalTitle = document.getElementById("modal-title");
 const modalText = document.getElementById("modal-text");
 
 const content = {
-  Storyline: "The story follows the rise of the Assassin in ancient Greece.",
-  Assassin: "Meet Alexios, Kassandra, and other key characters in the world.",
-  World: `<p>A vast open world with deserts, cities, and secrets.</p>
-  <img src="https://i.redd.it/nbi2gg43o3uz.jpg" alt="map">`
+  Storyline: "The story follows the rise of the Assassin in ancient Egypt.",
+  Assassin: "Meet Bayek, Aya, and other key characters in the world.",
+  World: "Swords, bows, and hidden blade upgrades define combat.",
 };
 
 document.querySelectorAll(".card").forEach(card => {
@@ -53,7 +56,7 @@ document.querySelectorAll(".card").forEach(card => {
     const topic = card.dataset.topic;
 
     modalTitle.textContent = topic.toUpperCase();
-    modalText.innerHTML = content[topic];
+    modalText.textContent = content[topic];
 
     overlay.style.display = "flex";
   });

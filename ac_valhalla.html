@@ -2,10 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <a href="index.html" class="home-btn">Home</a>
     <title>Document</title>
 </head>
-<body>
-    AC Valhalla
+<body class="valhalla">
+    <div class="container">
+
+    <h1 class="title">Assassin's Creed Odyssey</h1>
+
+    <p class="subtitle">Select a topic</p>
+
+    <div class="menu">
+
+  <a class="card" data-topic="Storyline">Storyline</a>
+  <a class="card" data-topic="Assassin">The Assassin</a>
+  <a class="card" data-topic="World">World</a>
+
+</div>
+
+<br>
+
+<iframe
+ width="1200"
+ height="600"
+ src="https://www.youtube.com/embed/rKjUAWlbTJk?si=l0fPp-rM7dIbSltq" 
+ frameborder="0" 
+ allowfullscreen></iframe>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+  </div>
+</div>
+
+<script>
+const overlay = document.getElementById("overlay");
+const modalTitle = document.getElementById("modal-title");
+const modalText = document.getElementById("modal-text");
+
+const content = {
+  Storyline: "The story follows the rise of the Assassin in ancient Egypt.",
+  Assassin: "Meet Bayek, Aya, and other key characters in the world.",
+  World: "Swords, bows, and hidden blade upgrades define combat.",
+};
+
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    const topic = card.dataset.topic;
+
+    modalTitle.textContent = topic.toUpperCase();
+    modalText.textContent = content[topic];
+
+    overlay.style.display = "flex";
+  });
+});
+
+// close when clicking outside modal
+overlay.addEventListener("click", (e) => {
+  if (e.target === overlay) {
+    overlay.style.display = "none";
+  }
+});
+</script>
 </body>
 </html>

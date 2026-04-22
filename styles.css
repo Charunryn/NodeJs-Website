@@ -1,34 +1,299 @@
 html, body {
   margin: 0;
+  font-family: Arial, sans-serif;
   height: 100%;
-  background: hotpink;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.home {
+  background: linear-gradient(135deg, #5c4d4d, #5c4d4d, #2e6440, #5c4d4d, #5c4d4d);
+}
+
+body.origins {
+  background-image: url('https://wallpapers.com/images/high/assassin-s-creed-origins-logo-mzrdjv0c0cqoqf7x.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  size: 100%;
+}
+
+body.origins::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.2);
+
+  transition: backdrop-filter 0.5s ease;
+
+  z-index: -1;
+}
+
+body.origins:hover::before {
+  backdrop-filter: blur(0px);
+}
+
+body.odyssey {
+  background-image: url('https://images7.alphacoders.com/937/thumb-1920-937505.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  size: 50%;
+}
+
+body.odyssey::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.2);
+
+  transition: backdrop-filter 0.5s ease;
+
+  z-index: -1;
+}
+
+body.odyssey:hover::before {
+  backdrop-filter: blur(0px);
+}
+
+body.valhalla {
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/d96bb958-4e6c-4ce0-9447-fbe226fbbecf/depa280-053af8a5-1920-43eb-a3f8-169184430497.jpg/v1/fill/w_1192,h_670,q_70,strp/assassin_s_creed_valhalla_live_wallpaper_by_favorisxp_depa280-pre.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.valhalla::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.2);
+
+  transition: backdrop-filter 0.5s ease;
+
+  z-index: -1;
+}
+
+body.valhalla:hover::before {
+  backdrop-filter: blur(0px);
+}
+
+body.syndicate {
+  background-image: url('https://images3.alphacoders.com/638/thumb-1920-638956.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.syndicate::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.2);
+
+  transition: backdrop-filter 0.5s ease;
+
+  z-index: -1;
+}
+
+body.syndicate:hover::before {
+  backdrop-filter: blur(0px);
+}
+
+.container {
+  padding: 60px;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  opacity: 0.7;
+  margin-bottom: 40px;
+}
+
+/* menu grid */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 100%;
+}
+
+/* cards */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+
+  border-radius: 12px;
+
+  transition: 0.3s ease;
+}
+
+/* hover effect */
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 170, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+}
+
+.home-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+  padding: 25px;
+  width: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+
+  border-radius: 12px;
+
+  transition: 0.3s ease;
+}
+
+.home-btn:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 170, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  height: 100vh;
+
+  width: 96vw;
+  height: 96vh;
+
+  gap: 20px;
+
+  margin: auto;
 }
 
 .box {
-background-size: cover;
-background-position: center;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.box:hover {
+  transform: scale(1.08);
+  z-index: 2;
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,0.3),
+    0 0 50px rgba(0,180,255,0.5),
+    0 0 100px rgba(0,180,255,0.3);
+
+  filter: brightness(1.4);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  width: auto;
+  height: auto;
+  padding: 25px;
+  border-radius: 12px;
+
+  background: rgba(20,20,30,0.95);
+  color: white;
+
+  box-shadow: 0 0 70px rgba(0,170,255,0.3);
+  
+  animation: pop 0.2s ease;
+}
+
+.modal.world-modal {
+  width: 1500px;
+  height: 900px;
+}
+
+.modal.world-modal #modal-text img {
+  width: 1500px;
+  max-height: 750px;
+}
+
+#modal-text {
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  max-width: 500px;
+  text-align: center;
+}
+
+#modal-text img {
+  width: 70vw;
+  height: 50vw;
+  max-height: 700px;
+  object-fit: cover;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.content {
+  letter-spacing: 0.5px;
+  line-height: 1.7;
 }
 
 /* Individual images */
 .box1 {
-  background-image: url('https://upload.wikimedia.org/wikipedia/en/2/23/Assassin%27s_Creed_Origins_Cover_Art.png');
+  background-image: url('https://wallpapers.com/images/high/assassin-s-creed-origins-logo-mzrdjv0c0cqoqf7x.webp');
 }
 
 .box2 {
-  background-image: url('https://en.wikipedia.org/wiki/File:ACOdysseyCoverArt.png');
+  background-image: url('https://images7.alphacoders.com/937/thumb-1920-937505.jpg');
 }
 
 .box3 {
-  background-image: url('https://en.wikipedia.org/wiki/File:Assassin%27s_Creed_Valhalla_cover.jpg');
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/d96bb958-4e6c-4ce0-9447-fbe226fbbecf/depa280-053af8a5-1920-43eb-a3f8-169184430497.jpg/v1/fill/w_1192,h_670,q_70,strp/assassin_s_creed_valhalla_live_wallpaper_by_favorisxp_depa280-pre.jpg');
 }
 
 .box4 {
-  background-image: url('https://en.wikipedia.org/wiki/File:Assassin%27s_Creed.jpg');
+  background-image: url('https://images3.alphacoders.com/638/thumb-1920-638956.jpg');
 }

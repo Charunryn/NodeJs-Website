@@ -2,33 +2,79 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            margin: 0;
-            background-image: url("https://images.wallpapersden.com/image/download/assassin-s-creed-mirage-4k-logo_bWtoaWuUmZqaraWkpJRobWllrWdma2U.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-    </style>
-<title>Page 2</title>
+    <a href="index.html" class="home-btn">Home</a>
+<title>Assassin's Creed Origins</title>
 </head>
 
-<body>
-    AC Origins
-<br>The content of the document......</br>
-<br>The content of the document......</br>
-<br>The content of the document......</br>
-<br>The content of the document......</br>
-<br>The content of the document......</br>
-<br>The content of the document......</br>
-<br>The content of the document......</br>
-<br>The content of the document......</br>
-<br>The content of the document......</br>
-<br><a href="index.html">Home</a></br>
-<br><a href="ac_odyssey.html">Odyssey</a></br>
-<br><a href="ac_valhalla.html">Valhalla</a></br>
-</body>
+<body class="origins">
+  <div class="container">
 
+    <h1 class="title">Assassin's Creed Origins</h1>
+
+    <h2 class="subtitle">Select a topic</h2>
+
+    <div class="menu">
+
+  <a class="card" data-topic="Storyline">Storyline</a>
+  <a class="card" data-topic="Assassin">The Assassin</a>
+  <a class="card" data-topic="World">World</a>
+
+</div>
+<br>
+<iframe 
+  width="1200" 
+  height="600"
+  src="https://www.youtube.com/embed/XmZ0c3c9KL0?si=qWn7gEu7zeW5lIKv"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+  </div>
+</div>
+</div>
+
+<script>
+const overlay = document.getElementById("overlay");
+const modalTitle = document.getElementById("modal-title");
+const modalText = document.getElementById("modal-text");
+
+const content = {
+  Storyline: "The story follows the rise of the Assassin in ancient Egypt. The Assassin travels through many regions to defeat The Order of The Ancients to deliver a revenge for his son's death",
+  Assassin: "Meet Bayek, Aya, and other key characters in the world.",
+  World: `<p>A vast open world with deserts, cities, and secrets.</p>
+  <img src="https://i.redd.it/nbi2gg43o3uz.jpg" alt="map">`
+};
+
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    const topic = card.dataset.topic;
+
+    modalTitle.textContent = topic.toUpperCase();
+    modalText.innerHTML = content[topic];
+
+    // remove previous special class
+    document.getElementById("modal").classList.remove("world-modal");
+
+    // add class ONLY for World
+    if (topic === "World") {
+      document.getElementById("modal").classList.add("world-modal");
+    }
+
+    overlay.style.display = "flex";
+  });
+});
+
+// close when clicking outside modal
+overlay.addEventListener("click", (e) => {
+  if (e.target === overlay) {
+    overlay.style.display = "none";
+  }
+});
+</script>
+</body>
 </html>
