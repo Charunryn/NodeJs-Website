@@ -16,7 +16,7 @@
     <div class="menu">
 
   <a class="card" data-topic="Storyline">Storyline</a>
-  <a class="card" data-topic="Assassin">The Assassin</a>
+  <a class="card" data-topic="Characters">Characters</a>
   <a class="card" data-topic="World">World</a>
 
 </div>
@@ -44,9 +44,22 @@ const modalTitle = document.getElementById("modal-title");
 const modalText = document.getElementById("modal-text");
 
 const content = {
-  Storyline: "The story follows the rise of the Assassin in ancient Egypt. The Assassin travels through many regions to defeat The Order of The Ancients to deliver a revenge for his son's death",
-  Assassin: "Meet Bayek, Aya, and other key characters in the world.",
-  World: `<p>A vast open world with deserts, cities, and secrets.</p>
+  Storyline: "Follows a protagonist seeking revenge for a personal tragedy, which leads to the creation of the Assassin Brotherhood. The journey uncovers hidden powers controlling ancient Egypt.",
+  Characters: `<p>Play as Bayek of Siwa, alongside key figures like Aya, while encountering members of the Order of the Ancients and historical figures such as Cleopatra.</p>
+  <div class="character-grid">
+
+    <div class="character-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/93/BayekRender.png" alt="Bayek">
+      <p>Bayek</p>
+    </div>
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreed/images/a/a6/ACO_Cleopatra_Render.png/revision/latest/scale-to-width-down/1000?cb=20200205110318" class="character-modal-img" alt="Cleopatra" width="300" height="500">
+      <p>Cleopatra</p>
+    </div>
+
+  </div>`,
+  World: `<p>Set in ancient Egypt, featuring deserts, pyramids, and cities like Alexandria.</p>
   <img src="https://i.redd.it/nbi2gg43o3uz.jpg" alt="map">`
 };
 
@@ -60,9 +73,21 @@ document.querySelectorAll(".card").forEach(card => {
     // remove previous special class
     document.getElementById("modal").classList.remove("world-modal");
 
+    document.getElementById("modal").classList.remove("characters-modal");
+
+    document.getElementById("modal").classList.remove("storyline-modal");
+
     // add class ONLY for World
     if (topic === "World") {
       document.getElementById("modal").classList.add("world-modal");
+    }
+
+    if (topic === "Characters") {
+      document.getElementById("modal").classList.add("characters-modal");
+    }
+
+    if (topic === "Storyline") {
+      document.getElementById("modal").classList.add("storyline-modal");
     }
 
     overlay.style.display = "flex";

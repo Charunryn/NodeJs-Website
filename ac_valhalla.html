@@ -5,19 +5,19 @@
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <a href="index.html" class="home-btn">Home</a>
-    <title>Document</title>
+    <title>Assassin's Creed Valhalla</title>
 </head>
 <body class="valhalla">
     <div class="container">
 
-    <h1 class="title">Assassin's Creed Odyssey</h1>
+    <h1 class="title">Assassin's Creed Valhalla</h1>
 
     <p class="subtitle">Select a topic</p>
 
     <div class="menu">
 
   <a class="card" data-topic="Storyline">Storyline</a>
-  <a class="card" data-topic="Assassin">The Assassin</a>
+  <a class="card" data-topic="Characters">Characters</a>
   <a class="card" data-topic="World">World</a>
 
 </div>
@@ -45,9 +45,28 @@ const modalTitle = document.getElementById("modal-title");
 const modalText = document.getElementById("modal-text");
 
 const content = {
-  Storyline: "The story follows the rise of the Assassin in ancient Egypt.",
-  Assassin: "Meet Bayek, Aya, and other key characters in the world.",
-  World: "Swords, bows, and hidden blade upgrades define combat.",
+  Storyline: "Centers on a protagonist leading a Viking clan to England in search of a new home, forging alliances and battling rival kingdoms.",
+  Characters: `Play as Eivor, alongside allies like Sigurd, and encounter rulers such as Alfred the Great.
+ <div class="character-grid">
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/p__/images/c/c4/ACV_Female_Eivor_render.png/revision/latest?cb=20201125093138&path-prefix=protagonist" class="character-modal-img" alt="Bayek">
+      <p>Eivor</p>
+    </div>
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreed/images/5/59/ACV_Sigurd_Styrbjornson.png/revision/latest?cb=20201122022942" class="character-modal-img">
+      <p>Sigurd</p>
+    </div>
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreed/images/0/06/ACV_Alfred_the_Great_render.png/revision/latest?cb=20200713034010" class="character-modal-img">
+      <p>Alfred The Great</p>
+    </div>
+
+  </div>`,
+  World: `<p>Spans Norway and Anglo-Saxon England, with rivers, forests, and fortified settlements.</p>
+  <img src="https://www.powerpyx.com/wp-content/uploads/assassins-creed-valhalla-england-map.jpg" alt="map">`
 };
 
 document.querySelectorAll(".card").forEach(card => {
@@ -55,7 +74,25 @@ document.querySelectorAll(".card").forEach(card => {
     const topic = card.dataset.topic;
 
     modalTitle.textContent = topic.toUpperCase();
-    modalText.textContent = content[topic];
+    modalText.innerHTML = content[topic];
+
+    document.getElementById("modal").classList.remove("world-modal");
+
+    document.getElementById("modal").classList.remove("characters-modal");
+
+    document.getElementById("modal").classList.remove("storyline-modal");
+
+    if (topic === "World") {
+      document.getElementById("modal").classList.add("world-modal");
+    }
+
+    if (topic === "Characters") {
+      document.getElementById("modal").classList.add("characters-modal");
+    }
+
+    if (topic === "Storyline") {
+      document.getElementById("modal").classList.add("storyline-modal");
+    }
 
     overlay.style.display = "flex";
   });

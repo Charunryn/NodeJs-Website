@@ -15,7 +15,7 @@
     <div class="menu">
 
   <a class="card" data-topic="Storyline">Storyline</a>
-  <a class="card" data-topic="Assassin">The Assassin</a>
+  <a class="card" data-topic="Characters">Characters</a>
   <a class="card" data-topic="World">World</a>
 
 </div>
@@ -42,10 +42,28 @@ const modalTitle = document.getElementById("modal-title");
 const modalText = document.getElementById("modal-text");
 
 const content = {
-  Storyline: "The story follows the rise of the Assassin in ancient Greece.",
-  Assassin: "Meet Alexios, Kassandra, and other key characters in the world.",
-  World: `<p>A vast open world with deserts, cities, and secrets.</p>
-  <img src="https://i.redd.it/nbi2gg43o3uz.jpg" alt="map">`
+  Storyline: "Follows a protagonist navigating a fractured family and their destiny during the Peloponnesian War. Choices shape alliances and the outcome of the story.",
+  Characters: `Play as either Kassandra or Alexios, while meeting historical figures like Socrates and Pericles.
+  <div class="character-grid">
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreed/images/8/85/ACOD_Deimos_render.png/revision/latest?cb=20181023124709" class="character-modal-img" alt="Bayek">
+      <p>Alexios</p>
+    </div>
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreed/images/7/7d/ACOD_Kassandra_Render_%28no_helmet%29.png/revision/latest/scale-to-width-down/1000?cb=20191020051616" class="character-modal-img">
+      <p>Kassandra</p>
+    </div>
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreed/images/6/65/ACOD_Sokrates_Render.png/revision/latest?cb=20200325104220" class="character-modal-img">
+      <p>Socrates</p>
+    </div>
+
+  </div>`,
+  World: `<p>A vast recreation of ancient Greece with islands and major cities like Athens.</p>
+  <img src="https://www.gamepressure.com/static/mapy/en/gfx/map_2268.jpg" alt="map">`
 };
 
 document.querySelectorAll(".card").forEach(card => {
@@ -54,6 +72,26 @@ document.querySelectorAll(".card").forEach(card => {
 
     modalTitle.textContent = topic.toUpperCase();
     modalText.innerHTML = content[topic];
+
+    // remove previous special class
+    document.getElementById("modal").classList.remove("world-modal");
+
+    document.getElementById("modal").classList.remove("characters-modal");
+
+    document.getElementById("modal").classList.remove("storyline-modal");
+
+    // add class ONLY for World
+    if (topic === "World") {
+      document.getElementById("modal").classList.add("world-modal");
+    }
+
+    if (topic === "Characters") {
+      document.getElementById("modal").classList.add("characters-modal");
+    }
+
+    if (topic === "Storyline") {
+      document.getElementById("modal").classList.add("storyline-modal");
+    }
 
     overlay.style.display = "flex";
   });

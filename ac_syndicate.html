@@ -5,19 +5,19 @@
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <a href="index.html" class="home-btn">Home</a>
-    <title>Document</title>
+    <title>Assassin's Creed Syndicate</title>
 </head>
 <body class="syndicate">
     <div class="container">
 
-    <h1 class="title">Assassin's Creed Odyssey</h1>
+    <h1 class="title">Assassin's Creed Syndicate</h1>
 
     <p class="subtitle">Select a topic</p>
 
     <div class="menu">
 
   <a class="card" data-topic="Storyline">Storyline</a>
-  <a class="card" data-topic="Assassin">The Assassin</a>
+  <a class="card" data-topic="Characters">Characters</a>
   <a class="card" data-topic="World">World</a>
 
 </div>
@@ -46,9 +46,28 @@ const modalTitle = document.getElementById("modal-title");
 const modalText = document.getElementById("modal-text");
 
 const content = {
-  Storyline: "The story follows the rise of the Assassin in ancient Egypt.",
-  Assassin: "Meet Bayek, Aya, and other key characters in the world.",
-  World: "Swords, bows, and hidden blade upgrades define combat.",
+  Storyline: "Follows twin protagonists working to dismantle Templar control over London’s criminal underworld during the Industrial Revolution.",
+  Characters: `Play as Jacob Frye and Evie Frye, while interacting with figures like Alexander Graham Bell and Charles Dickens.
+  <div class="character-grid">
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreed/images/d/d3/ACS_Jacob_Frye_Render.png/revision/latest/scale-to-width-down/1000?cb=20151203155803" class="character-modal-img" alt="Bayek">
+      <p>Jacob Frye</p>
+    </div>
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreed/images/7/70/ACS_Evie_Frye_Render.png/revision/latest/scale-to-width-down/1000?cb=20150809103119" class="character-modal-img">
+      <p>Evie Frye</p>
+    </div>
+
+    <div class="character-card">
+      <img src="https://static.wikia.nocookie.net/assassinscreed/images/0/06/ACS_Alexander_Graham_Bell_Render.png/revision/latest/scale-to-width-down/1000?cb=20151015195131" class="character-modal-img">
+      <p>Alexander Graham Bell</p>
+    </div>
+
+  </div>`,
+  World: `<p>Set in industrial London, featuring districts, factories, and the River Thames.</p>
+  <img src="https://cdn.mobygames.com/covers/1418624-assassins-creed-syndicate-charing-cross-edition-windows-map.jpg" alt="map">`
 };
 
 document.querySelectorAll(".card").forEach(card => {
@@ -56,7 +75,25 @@ document.querySelectorAll(".card").forEach(card => {
     const topic = card.dataset.topic;
 
     modalTitle.textContent = topic.toUpperCase();
-    modalText.textContent = content[topic];
+    modalText.innerHTML = content[topic];
+
+    document.getElementById("modal").classList.remove("world-modal");
+
+    document.getElementById("modal").classList.remove("characters-modal");
+
+    document.getElementById("modal").classList.remove("storyline-modal");
+
+    if (topic === "World") {
+      document.getElementById("modal").classList.add("world-modal");
+    }
+
+    if (topic === "Characters") {
+      document.getElementById("modal").classList.add("characters-modal");
+    }
+
+    if (topic === "Storyline") {
+      document.getElementById("modal").classList.add("storyline-modal");
+    }
 
     overlay.style.display = "flex";
   });
