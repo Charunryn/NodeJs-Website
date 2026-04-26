@@ -74,7 +74,7 @@ document.querySelectorAll(".card").forEach(card => {
     modalText.innerHTML = content[topic];
 
     // remove previous special class
-    document.getElementById("modal").classList.remove("world-modal");
+    document.getElementById("modal").classList.remove("odyssey-world-modal");
 
     document.getElementById("modal").classList.remove("characters-modal");
 
@@ -82,7 +82,7 @@ document.querySelectorAll(".card").forEach(card => {
 
     // add class ONLY for World
     if (topic === "World") {
-      document.getElementById("modal").classList.add("world-modal");
+      document.getElementById("modal").classList.add("odyssey-world-modal");
     }
 
     if (topic === "Characters") {

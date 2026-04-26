@@ -76,14 +76,14 @@ document.querySelectorAll(".card").forEach(card => {
     modalTitle.textContent = topic.toUpperCase();
     modalText.innerHTML = content[topic];
 
-    document.getElementById("modal").classList.remove("world-modal");
+    document.getElementById("modal").classList.remove("valhalla-world-modal");
 
     document.getElementById("modal").classList.remove("characters-modal");
 
     document.getElementById("modal").classList.remove("storyline-modal");
 
     if (topic === "World") {
-      document.getElementById("modal").classList.add("world-modal");
+      document.getElementById("modal").classList.add("valhalla-world-modal");
     }
 
     if (topic === "Characters") {

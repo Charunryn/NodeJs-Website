@@ -239,7 +239,21 @@ body.syndicate:hover::before {
 }
 
 .modal {
-  width: 850px;
+  width: 900px;
+  height: auto;
+  padding: 25px;
+  border-radius: 12px;
+
+  background: rgba(20,20,30,0.95);
+  color: white;
+
+  box-shadow: 0 0 70px rgba(0,170,255,0.3);
+  
+  animation: pop 0.3s ease;
+}
+
+.modal.storyline-modal {
+  width: 700px;
   height: auto;
   padding: 25px;
   border-radius: 12px;
@@ -267,11 +281,36 @@ body.syndicate:hover::before {
   max-height: 750px;
 }
 
+.modal.valhalla-world-modal #modal-text {
+  max-width: none;
+}
+
+.modal.valhalla-world-modal #modal-text img {
+  width: 800px;
+  max-height: 750px;
+}
+
+.modal.odyssey-world-modal #modal-text {
+  max-width: none;
+}
+
+.modal.odyssey-world-modal #modal-text img {
+  width: 750px;
+  max-height: 750px;
+}
+
 .modal.characters-modal #modal-text {
   max-width: none;
 }
 
-.modal.characters-modal #modal-text img {
+.modal.characters-modal #modal-text img.character-modal-img {
+  height: 500px;
+  width: 300px;
+  object-fit: contain;
+}
+
+
+/*.modal.characters-modal #modal-text img {
   width: 70vw;
   height: 30vw;
   max-height: 500px;
@@ -279,7 +318,8 @@ body.syndicate:hover::before {
   object-fit: cover;
   margin-top: 15px;
   border-radius: 10px;
-}
+ }
+*/
 
 .modal.storyline-modal #modal-text {
   max-width: none;
@@ -301,13 +341,6 @@ body.syndicate:hover::before {
   margin-top: 15px;
   border-radius: 10px;
 }
-
-.modal.characters-modal #modal-text img.character-modal-img {
-  height: 500px;
-  width: 300px;
-  object-fit: contain;
-}
-
 
 @keyframes pop {
   from { transform: scale(0.8); opacity: 0; }
